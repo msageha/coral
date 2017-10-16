@@ -1,0 +1,4 @@
+# mozuku
+
+python用mecabラッパースクリプト
+
