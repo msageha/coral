@@ -1,5 +1,5 @@
 import MeCab
-from src.modify_unit import modify_mecab_text
+from src import unit
 
 mecab_dic_dir = '/usr/local/mecab/lib/mecab/dic/'
 neologd_path = mecab_dic_dir + 'mecab-ipadic-neologd-all'
@@ -17,14 +17,16 @@ if __name__ == '__main__':
         の\t助詞,連体化,*,*,*,*,の,ノ,ノ\n
         鉛筆\t名詞,一般,*,*,*,*,鉛筆,エンピツ,エンピツ'
     '''
-    atext = input()
+    text = input()
     node = mecab.parseToNode(text)
     while node:
-      #ココで処理する
-
-      node = node.next
+        #ココで処理する
+        node = node.next
     for line in sys.stdin:
-        input_list.append(line)
-    text = ''.join(input_list)
-    modify_text = modify_mecab_text(text)
-    print(modify_text, end='')
+        yomi = unit.modify_mecab_node(node)
+        print(node.surface)
+        print(node.feature)
+        print(yomi)
+        print('--------')
+        node = node.next
+
