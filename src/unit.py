@@ -5,7 +5,7 @@ import re
 import sys
 
 # Input files to be processed
-data_dir = '../data'
+data_dir = 'data'
 unit_dict_path = data_dir + '/unit_dict.csv'
 unit_pronounce_dict_path = data_dir + '/unit_pronounce.csv'
 
@@ -33,28 +33,29 @@ def number_pronounce_type_dict_generate():
     '''
         単位毎に、数字の読みのタイプを定義
     '''
-    number_pronounce_type = '''A1 イチ ニ サン ヨン ゴ ロク ナナ ハチ キュー ジュー
-        A2 イチ ニ サン ヨン ゴ ロク ナナ ハチ キュー ジュッ
-        A3 イッ ニ サン ヨン ゴ ロク ナナ ハチ キュー ジュッ
-        A4 イチ ニ サン ヨン ゴ ロッ ナナ ハチ キュー ジュッ
-        A5 イッ ニ サン ヨン ゴ ロク ナナ ハッ キュー ジュッ
-        A6 イッ ニ サン ヨン ゴ ロッ ナナ ハチ キュー ジュッ
-        A7 イッ ニ サン ヨン ゴ ロッ ナナ ハッ キュー ジュッ
-        A8 イチ ニー サン ヨン ゴー ロク ナナ ハチ キュー ジュッ
-        B1 イチ ニ サン シ ゴ ロク シチ ハチ ク ジュー
-        B2 イチ ニ サン ヨン ゴ ロク シチ ハチ ク ジュー
-        B3 イチ ニ サン ヨン ゴ ロク シチ ハチ キュー ジュー
-        B4 イチ ニ サン ヨ ゴ ロク シチ ハチ ク ジュー
-        B5 イチ ニ サン ヨン ゴ ロク ナナ ハチ ク ジュー
-        B6 イチ ニ サン ヨン ゴ ロク ナナ ハチ キュー ジュー
+    number_pronounce_type = '''A1 イチ ニ サン ヨン ゴ ロク ナナ ハチ キュウ ジュウ
+        A2 イチ ニ サン ヨン ゴ ロク ナナ ハチ キュウ ジュッ
+        A3 イッ ニ サン ヨン ゴ ロク ナナ ハチ キュウ ジュッ
+        A4 イチ ニ サン ヨン ゴ ロッ ナナ ハチ キュウ ジュッ
+        A5 イッ ニ サン ヨン ゴ ロク ナナ ハッ キュウ ジュッ
+        A6 イッ ニ サン ヨン ゴ ロッ ナナ ハチ キュウ ジュッ
+        A7 イッ ニ サン ヨン ゴ ロッ ナナ ハッ キュウ ジュッ
+        A8 イチ ニー サン ヨン ゴー ロク ナナ ハチ キュウ ジュッ
+        B1 イチ ニ サン シ ゴ ロク シチ ハチ ク ジュウ
+        B2 イチ ニ サン ヨン ゴ ロク シチ ハチ ク ジュウ
+        B3 イチ ニ サン ヨン ゴ ロク シチ ハチ キュウ ジュウ
+        B4 イチ ニ サン ヨ ゴ ロク シチ ハチ ク ジュウ
+        B5 イチ ニ サン ヨン ゴ ロク ナナ ハチ ク ジュウ
+        B6 イチ ニ サン ヨン ゴ ロク ナナ ハチ キュウ ジュウ
         C1 ヒト フタ ミ ヨ イツ ム ナナ ヤ ココノ ト
-        C2 ヒト フタ ミ ヨ イツ ム ナナ ヤ キュー ト
-        C3 ヒト フタ ミ ヨ イツ ム ナナ ハチ キュー ト
-        C4 ヒト フタ ミ ヨ イツ ム ナナ ハチ キュー ジュー
-        C5 ヒト フタ ミ ヨ ゴ ム ナナ ハチ キュー ジュッ
-        C6 ヒト フタ サン ヨン ゴ ム ナナ ハチ キュー ジュー
-        C7 ヒト フタ サン ヨン ゴ ロク ナナ ハチ キュー ジュー
-        C8 ヒト フタ サン ヨン ゴ ロク ナナ ハッ キュー ジュッ
+        C2 ヒト フタ ミ ヨ イツ ム ナナ ヤ キュウ ト
+        C3 ヒト フタ ミ ヨ イツ ム ナナ ハチ キュウ ト
+        C4 ヒト フタ ミ ヨ イツ ム ナナ ハチ キュウ ジュウ
+        C5 ヒト フタ ミ ヨ ゴ ム ナナ ハチ キュウ ジュッ
+        C6 ヒト フタ サン ヨン ゴ ム ナナ ハチ キュウ ジュウ
+        C7 ヒト フタ サン ヨン ゴ ロク ナナ ハチ キュウ ジュウ
+        C8 ヒト フタ サン ヨン ゴ ロク ナナ ハッ キュウ ジュッ
+        C9 ヒト フタ サン ヨン ゴ ロク ナナ ハチ キュウ ジュッ
         D1 イチ フツ ミッ ヨッ イツ ムイ ナノ　ヨウ ココノ トウ
         D2 ヒト フタ ミ ヨン イツ ムウ ナノ ヨウ ココノ トウ'''.split('\n')
     number_pronounce_type_dict =  {}
@@ -143,11 +144,11 @@ def unit_pronounce_generate(num, unit, unit_dict, unit_pronounce_dict):
         pronounce = unit_dict[unit]['読み']
     return pronounce
 
-def modify_mecab_node(node):
+def modify_mecab_node(node, num=None, insert_comma=False):
     '''mecabのnodeを受け取り、数字と単位について正しい読みに修正して返す'''
     #単語が数字だった場合
     if word_is_all_type_num(node.surface):
-        num = int(num_normalize(node.surface))
+        num = int(num_normalize(node.surface)) if num else num
         unit = node.next.surface
         num_pronounce_type = unit_dict.get(unit, {'type': 'A1'})['type']
         if node.prev and (node.prev.surface == '.' or node.prev.surface == '．') and node.prev.prev and word_is_all_type_num(node.prev.prev.surface):

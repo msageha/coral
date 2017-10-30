@@ -5,22 +5,22 @@ mecab_dic_dir = '/usr/local/mecab/lib/mecab/dic/'
 neologd_path = mecab_dic_dir + 'mecab-ipadic-neologd-all'
 mecab = MeCab.Tagger('-d {}'.format(neologd_path))
 mecab.parse('')
-ipadic_path = args.ipa + 'ipadic'
+ipadic_path = mecab_dic_dir + 'ipadic'
 mecab_ipa = MeCab.Tagger('-d {}'.format(ipadic_path))
 mecab_ipa.parse('')
 
 if __name__ == '__main__':
     '''
       text =
-        '111\tåè©,æ•°,*,*,*,*,*\n
-        æœ¬\tåè©,æ¥å°¾,åŠ©æ•°è©,*,*,*,æœ¬,ãƒ›ãƒ³,ãƒ›ãƒ³\n
-        ã®\tåŠ©è©,é€£ä½“åŒ–,*,*,*,*,ã®,ãƒ,ãƒ\n
-        é‰›ç­†\tåè©,ä¸€èˆ¬,*,*,*,*,é‰›ç­†,ã‚¨ãƒ³ãƒ”ãƒ„,ã‚¨ãƒ³ãƒ”ãƒ„'
+        '111\tÃûÔ~,Êı,*,*,*,*,*\n
+        ±¾\tÃûÔ~,½ÓÎ²,ÖúÊıÔ~,*,*,*,±¾,¥Û¥ó,¥Û¥ó\n
+        ¤Î\tÖúÔ~,ßBÌå»¯,*,*,*,*,¤Î,¥Î,¥Î\n
+        ãU¹P\tÃûÔ~,Ò»°ã,*,*,*,*,ãU¹P,¥¨¥ó¥Ô¥Ä,¥¨¥ó¥Ô¥Ä'
     '''
     text = input()
     node = mecab.parseToNode(text)
     while node:
-        #ã‚³ã‚³ã§å‡¦ç†ã™ã‚‹
+        #¥³¥³¤Ç„IÀí¤¹¤ë
         node = node.next
     for line in sys.stdin:
         yomi = unit.modify_mecab_node(node)
