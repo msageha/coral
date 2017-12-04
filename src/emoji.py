@@ -1,3 +1,0 @@
-
-emoji_dict = {}
-
