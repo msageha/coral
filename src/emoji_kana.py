@@ -21,8 +21,9 @@ emoji_dict.update(flag_dict)
 
 EMOJI_SORTED_BY_LENGTH = sorted(emoji_dict.keys(), key=len, reverse=True)
 
-def replace(text):
-    text_copy = text
+def replace(node):
+    surface = node.surface
+    feature = node.feature.split(',')
     for key in EMOJI_SORTED_BY_LENGTH:
         #複数変換候補がある場合，とりあえず今は最初の候補に変換
         value = emoji_dict[key].split('|')[0]

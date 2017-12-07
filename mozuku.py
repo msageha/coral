@@ -27,6 +27,9 @@ if __name__ == '__main__':
         if not is_changed:
             feature, changed = src.readable_counter.translate(node)
             is_changed |= changed
+        if not is_changed:
+            feature, changed = src.kana.translate(node)
+            is_changed |= changed
         print(f'{surface}\t{feature}')
         node = node.next
         # neologd_total_word_length += len(node.surface)
