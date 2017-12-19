@@ -1,14 +1,14 @@
 import re
 
 def last_is_num(word):
-  if not word:
-    return False
-  return re.match(r'[0-9]+\Z', word)
+    if not word:
+        return False
+    return re.match(r'[0-9]+\Z', word)
 
 def first_is_num(word):
-  if not word:
-    return False
-  return re.match(r'\A[0-9]+', word)
+    if not word:
+        return False
+    return re.match(r'\A[0-9]+', word)
 
 def translate(node):
     word = node.surface

@@ -7,13 +7,13 @@ def word_is_num(word):
     return re.match(r'\A[0-9]+\Z', word)
 
 def num_to_kana(num_str, num_type, is_decimal):
-    if int(num_str) == 0: return 'ゼロ'
+    if int(num_str) == 0: return 'レイ'
     word = ''
     if is_decimal:
         DEFAULT_NUMBER_PRONOUNCE_DICT = {0: 'ゼロ', 1: 'イチ', 2: 'ニ', 3: 'サン', 4: 'ヨン', 5: 'ゴオ',
             6: 'ロク', 7: 'ナナ', 8: 'ハチ', 9: 'キュウ'}
         for i in num_str:
-            word += DEFAULT_NUMBER_PRONOUNCE_DICT[int(num_str)]
+            word += DEFAULT_NUMBER_PRONOUNCE_DICT[int(i)]
     else:
         DEFAULT_NUMBER_PRONOUNCE_DICT_WITHOUT_1 = {0: '', 1: '', 2: 'ニ', 3: 'サン', 4: 'ヨン', 5: 'ゴ',
             6: 'ロク', 7: 'ナナ', 8: 'ハチ', 9: 'キュウ'}
@@ -58,8 +58,10 @@ def num_to_kana(num_str, num_type, is_decimal):
                 if int(num_str) > 10 and (num_type[0] == 'D' or (num_type[0] == 'C' and int(sub_num_str[3]) < 6)):
                     word += DEFAULT_NUMBER_PRONOUNCE_DICT_WITH_1[int(sub_num_str[3])]
                 else:
-                    word += data.counter_suffix_dicts.type_number_pronounce_dict[num_type][int(sub_num_str[3])]
-
+                    if int(sub_num_str[3]) == 0:
+                        pass
+                    else:
+                        word += data.counter_suffix_dicts.type_number_pronounce_dict[num_type][int(sub_num_str[3])]
             else:
                 word += THOUSAND_NUMBER_PRONOUNCE_DICT[int(sub_num_str[0])]
                 word += THOUSAND_PRONOUNCE[int(sub_num_str[0])]
@@ -83,7 +85,7 @@ def translate(node):
             num_type = 'A8'
         else:
             num_type = 'A1'
-        if node.prev.surface == '.' and word_is_none(node.prev.prev.surface):
+        if node.prev.surface == '.' and word_is_num(node.prev.prev.surface):
             is_decimal = True
         else:
             is_decimal = False
