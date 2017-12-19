@@ -38,7 +38,6 @@ def num_to_kana(num_str, num_type, is_decimal):
             sub_num_str = num_str[-4*(i+1):][:4]
             if sub_num_str == '0000':
                 continue
-
             elif i==0:
                 #下４桁の処理
                 word += THOUSAND_NUMBER_PRONOUNCE_DICT[int(sub_num_str[0])]
@@ -92,7 +91,7 @@ def translate(node):
         word = num_to_kana(word, num_type, is_decimal)
         while len(feature) < 9:
             feature.append('*')
-
         feature[7] = word
         feature[8] = word
-    return ','.join(feature), ','.join(feature) != node.feature
+        return ','.join(feature), word != num_to_kana(node.surface, 'A1', False)
+    return ','.join(feature), False

@@ -19,13 +19,13 @@ def parse(text):
         feature = node.feature
         is_changed = False
         if not is_changed:
-            feature, changed = src.readable_number.translate(node)
+            feature, changed = src.dot_kana.translate(node)
             is_changed |= changed
         if not is_changed:
             feature, changed = src.readable_counter.translate(node)
             is_changed |= changed
         if not is_changed:
-            feature, changed = src.dot_kana.translate(node)
+            feature, changed = src.readable_number.translate(node)
             is_changed |= changed
         node = node.next
         yield surface, feature
