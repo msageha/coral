@@ -29,6 +29,9 @@ if __name__ == '__main__':
             feature, changed = src.readable_counter.translate(node)
             is_changed |= changed
         if not is_changed:
+            feature, changed = src.dot_kana.translate(node)
+            is_changed |= changed
+        if not is_changed:
             feature, changed = src.kana.translate(node)
             is_changed |= changed
         print(f'{surface}\t{feature}')

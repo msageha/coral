@@ -1,7 +1,5 @@
 import re
 
-import data
-
 def word_is_kana(word): return re.match(r'\A[ぁ-んァ-ン]+\Z', word)
 
 def hira_to_kata(word):

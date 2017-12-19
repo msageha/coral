@@ -2,7 +2,7 @@ import re
 
 import data
 
-def word_is_num(word): return re.match(r'\A[0-9０-９]+\Z', word)
+def word_is_num(word): return re.match(r'\A[0-9]+\Z', word)
 
 def translate(node):
     word = node.surface
