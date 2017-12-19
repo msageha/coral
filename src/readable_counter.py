@@ -14,6 +14,6 @@ def translate(node):
             num %= 10
         if counter_suffix_pronounce_dict.get(num) and feature[7] != counter_suffix_pronounce_dict[num]:
             word = counter_suffix_pronounce_dict[num]
-        feature[7] = word
-        feature[8] = word
+            feature[7] = word
+            feature[8] = word
     return ','.join(feature), ','.join(feature) != node.feature

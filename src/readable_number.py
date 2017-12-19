@@ -43,7 +43,7 @@ def num_to_kana(num_str, num_type):
             else:
                 word += DEFAULT_NUMBER_PRONOUNCE_DICT_WITHOUT_1[int(sub_num_str[2])]
                 word += TEN_PRONOUNCE[int(sub_num_str[2])]
-            if num_type[0] == 'D' or (num_type[0] == 'C' and int(sub_num_str[3]) < 6):
+            if int(num_str) > 10 and (num_type[0] == 'D' or (num_type[0] == 'C' and int(sub_num_str[3]) < 6)):
                 word += DEFAULT_NUMBER_PRONOUNCE_DICT_WITH_1[int(sub_num_str[3])]
             else:
                 word += data.counter_suffix_dicts.type_number_pronounce_dict[num_type][int(sub_num_str[3])]
