@@ -88,10 +88,12 @@ def translate(node):
             is_decimal = True
         else:
             is_decimal = False
-        word = num_to_kana(word, num_type, is_decimal)
+        pronounce = num_to_kana(word, num_type, is_decimal)
+        standard_pronounce = num_to_kana(word, 'A1', False)
         while len(feature) < 9:
             feature.append('*')
-        feature[7] = word
-        feature[8] = word
-        return ','.join(feature), word != num_to_kana(node.surface, 'A1', False)
+        feature[6] = standard_pronounce
+        feature[7] = pronounce
+        feature[8] = pronounce
+        return ','.join(feature), standard_pronounce != pronounce
     return ','.join(feature), False

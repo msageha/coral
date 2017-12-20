@@ -16,7 +16,7 @@ def translate(node):
     if word == '.' and last_is_num(node.prev.surface) and first_is_num(node.next.surface):
         while len(feature) < 9:
             feature.append('*')
-        feature[3] = '小数点'
+        feature[2] = '小数点'
         feature[7] = 'テン'
         feature[8] = 'テン'
     return ','.join(feature), ','.join(feature) != node.feature
