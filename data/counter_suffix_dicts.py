@@ -98,7 +98,6 @@ type_number_pronounce_dict = {
 # 単位に応じて，数字の読みのタイプが変化するため，それを判定するdict
 # key = (単位, 読み)
 counter_suffix_number_type_dict = {
-    ('.', 'テン'): 'A8',
     ('Byte', 'バイト'): 'A1',
     ('CC', 'シーシー'): 'A2',
     ('DO', 'ディーオー'): 'A1',
