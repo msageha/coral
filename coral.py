@@ -3,13 +3,13 @@ import subprocess
 import src
 
 mecab_dic_dir = subprocess.check_output(['mecab-config', '--dicdir']).decode('utf-8').strip() + '/'
-neologd_path = mecab_dic_dir + 'mecab-ipadic-neologd'
-mecab = MeCab.Tagger('-d {}'.format(neologd_path))
+# neologd_path = mecab_dic_dir + 'mecab-ipadic-neologd'
+# mecab = MeCab.Tagger('-d {}'.format(neologd_path))
+ipadic_path = mecab_dic_dir + 'ipadic'
+mecab_ipa = MeCab.Tagger('-d {}'.format(ipadic_path))
+mecab = mecab_ipa
+
 mecab.parse('')
-# ipadic_path = mecab_dic_dir + 'ipadic'
-# mecab_ipa = MeCab.Tagger('-d {}'.format(ipadic_path))
-# mecab_ipa.parse('')
-# mecab = mecab_ipa
 
 def parse(text):
     text, _ = src.normalize.replace(text)
