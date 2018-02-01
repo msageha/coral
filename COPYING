@@ -14,11 +14,11 @@ https://github.com/google/mozc/tree/master/src/data/symbol
 絵文字データ：
 https://github.com/google/mozc/tree/master/src/data/emoji
 
-2. 本データは，工藤拓氏が提供するMeCab用IPA辞書 mecab-ipadicの辞書データのうちの助数詞を使用している．
+2. 本データは，工藤拓氏が提供するMeCab用IPA辞書 mecab-ipadicの辞書データを使用している．
 
 http://taku910.github.io/mecab/#download
 
-3. 本データは，佐藤敏紀氏が提供するMeCab用辞書 mecab-ipadic-NEologdの辞書データのうちの助数詞を使用している．
+3. 本データは，佐藤敏紀氏が提供するMeCab用辞書 mecab-ipadic-NEologdの辞書データを使用している．
 
 mecab-ipadic-NEologd : Neologism dictionary for MeCab
 
